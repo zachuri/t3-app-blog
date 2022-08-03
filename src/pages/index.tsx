@@ -3,7 +3,6 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import { trpc } from "../utils/trpc";
-import { useSyncExternalStore } from "use-sync-external-store/shim/index.js";
 
 const Home: NextPage = () => {
 	// Example: getting hello query using trpc
