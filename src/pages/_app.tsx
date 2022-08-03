@@ -52,9 +52,11 @@ export default withTRPC({
 
 	// false because we want to be able to see every
 	//  single request our client is making
-  
+
 	ssr: false, //play with this setting that gives the best performance and UX
 
 	// if true -> client will make request on the server
 	//  wont be able to see those request in the network tab
-});
+})(MyApp);
+
+// adding (MyApp) for our app to execute with TRPC
