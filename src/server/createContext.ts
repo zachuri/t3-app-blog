@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-
+import { prisma } from "../utils/prisma";
 // Function used later on to build our user
 
 export function createContext({
@@ -9,7 +9,7 @@ export function createContext({
 	req: NextApiRequest;
 	res: NextApiResponse;
 }) {
-	return { req, res };
+	return { req, res, prisma };
 }
 
 export type Context = ReturnType<typeof createContext>;
