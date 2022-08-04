@@ -1,6 +1,5 @@
--- Active: 1659596797152@@127.0.0.1@5432@postgres
 -- CreateTable
-CREATE TABLE "User" (
+CREATE TABLE "Person" (
     "id" TEXT NOT NULL,
     "email" TEXT NOT NULL,
     "name" TEXT NOT NULL,
@@ -9,7 +8,7 @@ CREATE TABLE "User" (
 );
 
 -- CreateIndex
-CREATE UNIQUE INDEX "User_id_key" ON "User"("id");
+CREATE UNIQUE INDEX "Person_id_key" ON "Person"("id");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
+CREATE UNIQUE INDEX "Person_email_key" ON "Person"("email");

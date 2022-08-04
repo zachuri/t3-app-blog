@@ -3,7 +3,7 @@ import superjson from "superjson";
 import { Context } from "./createContext";
 
 export function createRouter() {
-	// Context type to for each router to have a type of res & req from createContext
+	// Context type to for each router to have a type of res & req from createContex
 	return router<Context>().transformer(superjson);
 
 	//helps to not need to call .transformer on every single router we create

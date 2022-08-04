@@ -23,6 +23,8 @@ export const userRouter = createRouter().mutation("register-user", {
 					name,
 				},
 			});
+
+			return user;
 		} catch (e) {
 			//Checks is user already exists
 			if (e instanceof PrismaClientKnownRequestError) {
