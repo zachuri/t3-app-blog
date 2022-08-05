@@ -15,3 +15,10 @@ export const createUserOutputScheme = z.object({
 // Explanation calling a type of CreateUserInput from the return
 //  of the object call of createUserScehema
 export type CreateUserInput = z.TypeOf<typeof createUserSchema>;
+
+export const requestOtpSchema = z.object({
+	email: z.string().email(),
+	redirect: z.string().default("/"),
+});
+
+export type requestOtpInput = z.TypeOf<typeof requestOtpSchema>;
