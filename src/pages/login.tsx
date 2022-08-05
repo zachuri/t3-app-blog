@@ -5,6 +5,10 @@ import { useForm } from "react-hook-form";
 import { CreateUserInput } from "../schema/user.schema";
 import { trpc } from "../utils/trpc";
 
+function VerifyToken() {
+	return <p>Verifying...</p>;
+}
+
 function LoginPage() {
 	// Using react Form
 	// useForm type -> CreatUserInput from user.schema.ts
@@ -31,6 +35,16 @@ function LoginPage() {
 	// onSubmit make sure the values are good types of CreateUserInput
 	function onSubmit(values: CreateUserInput) {
 		mutate(values);
+	}
+
+	//router.asPath will get the string from the path
+	// in our case it has our token which we want to get
+	const hash = router.asPath.split("#token=")[1];
+
+	// if there is a has display a verifying note
+	if (hash) {
+		// Component created at top of this file
+		return <VerifyToken />;
 	}
 
 	return (
