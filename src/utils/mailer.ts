@@ -12,7 +12,7 @@ export async function sendLoginEmail({
 	const testAccount = await nodemailer.createTestAccount();
 
 	const transporter = nodemailer.createTransport({
-		host: "smtp.ethernal.email",
+		host: "smtp.ethereal.email",
 		port: 587,
 		secure: false,
 		auth: {
