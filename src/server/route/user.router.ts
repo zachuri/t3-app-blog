@@ -82,6 +82,8 @@ export const userRouter = createRouter()
 			// use await to catch errors(will take longer)
 			// await sendLoginEmail({
 			sendLoginEmail({
+				// Note this function is being used from util/mailer
+				//  here we create the token and send it our user
 				token: encode(`${token.id}:${user.email}`),
 				url: baseUrl,
 				email: user.email,
