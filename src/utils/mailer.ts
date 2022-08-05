@@ -32,5 +32,7 @@ export async function sendLoginEmail({
 		html: `Login by clicking <a href="${url}/login#token=${token}"> HERE <a/>`,
 	});
 
+	// NOTE: will be used to pass the token to our website
+
 	console.log(`Preview URL: ${nodemailer.getTestMessageUrl(info)}`);
 }
