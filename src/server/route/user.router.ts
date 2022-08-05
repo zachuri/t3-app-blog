@@ -80,7 +80,8 @@ export const userRouter = createRouter()
 			});
 
 			// use await to catch errors(will take longer)
-			await sendLoginEmail({
+			// await sendLoginEmail({
+			sendLoginEmail({
 				token: encode(`${token.id}:${user.email}`),
 				url: url,
 				email: user.email,
