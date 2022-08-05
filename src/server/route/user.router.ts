@@ -8,7 +8,7 @@ import {
 } from "../../schema/user.schema";
 import { sendLoginEmail } from "../../utils/mailer";
 import { createRouter } from "../createRouter";
-import { url } from "../../utils/constants";
+import { baseUrl, url } from "../../utils/constants";
 import { encode } from "../../utils/base64";
 
 export const userRouter = createRouter()
@@ -83,7 +83,7 @@ export const userRouter = createRouter()
 			// await sendLoginEmail({
 			sendLoginEmail({
 				token: encode(`${token.id}:${user.email}`),
-				url: url,
+				url: baseUrl,
 				email: user.email,
 			});
 
