@@ -10,7 +10,7 @@ const Home: NextPage = () => {
 	// extracting the data from the query
 	// will return data, error, or isLoading
 	// if either is true return a display
-	const { data, error, isLoading } = trpc.useQuery(["hello"]);
+	const { data, error, isLoading } = trpc.useQuery(["users.me"]);
 
 	if (isLoading) {
 		return <p>Loading...</p>;
