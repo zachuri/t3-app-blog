@@ -6,6 +6,8 @@ import { CreateUserInput } from "../schema/user.schema";
 import { trpc } from "../utils/trpc";
 import dynamic from "next/dynamic";
 
+// Made our component LoginForm dynamic to be able to obtain
+// data from the server dynamically
 const LoginForm = dynamic(() => import("../components/LoginForm"), {
 	ssr: false,
 });
