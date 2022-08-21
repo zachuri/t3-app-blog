@@ -8,7 +8,7 @@ import { trpc } from "../utils/trpc";
 function VerifyToken({ hash }: { hash: string }) {
 	const router = useRouter();
 	const { data, isLoading } = trpc.useQuery([
-		"users.verify-top",
+		"users.verify-otp",
 		{
 			hash,
 		},
@@ -18,7 +18,7 @@ function VerifyToken({ hash }: { hash: string }) {
 		return <p>Verifying...</p>;
 	}
 
-	// router.push(data?.redirect.includes("login") ? "/" : data?.redirect || "/");
+	router.push(data?.redirect.includes("login") ? "/" : data?.redirect || "/");
 
 	return <p>Redirecting</p>;
 }
@@ -50,7 +50,7 @@ function LoginForm() {
 
 	// onSubmit make sure the values are good types of CreateUserInput
 	function onSubmit(values: CreateUserInput) {
-		mutate(values);
+		mutate({ ...values, redirect: router.asPath });
 	}
 
 	//router.asPath will get the string from the path
@@ -60,7 +60,7 @@ function LoginForm() {
 	// if there is a has display a verifying note
 	if (hash) {
 		// Component created at top of this file
-		return <VerifyToken hash="={}" />;
+		return <VerifyToken hash={hash} />;
 	}
 
 	return (
