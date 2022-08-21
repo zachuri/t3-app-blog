@@ -10,8 +10,6 @@ const LoginForm = dynamic(() => import("../components/LoginForm"), {
 	ssr: false,
 });
 
-function VerifyToken({ hash }: { hash: string }) {}
-
 function LoginPage() {
 	return (
 		<div>
