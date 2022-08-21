@@ -29,7 +29,7 @@ export async function sendLoginEmail({
 		to: email,
 		subject: "Login to your account",
 		// use # instead of ? because you don't want the token to be save in the browswer history
-		html: `Login by clicking <a href="${url}/login#token=${token}"> HERE <a/>`,
+		html: `Login by clicking <a href="${url}/login#token=${token}">HERE</a>`,
 	});
 
 	// NOTE: will be used to pass the token to our website

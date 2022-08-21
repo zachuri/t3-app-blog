@@ -2,7 +2,7 @@ import jwt from "jsonwebtoken";
 
 const SECRET = process.env.SECRET || "changeme";
 
-export function singJwt(data: object) {
+export function signJwt(data: object) {
 	return jwt.sign(data, SECRET);
 }
 
