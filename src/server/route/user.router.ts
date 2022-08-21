@@ -10,9 +10,8 @@ import {
 import { sendLoginEmail } from "../../utils/mailer";
 import { createRouter } from "../createRouter";
 import { baseUrl, url } from "../../utils/constants";
-import { encode } from "../../utils/base64";
-import { decode } from "jsonwebtoken";
-import { singJwt } from "../../utils/jwt";
+import { decode, encode } from "../../utils/base64";
+import { signJwt } from "../../utils/jwt";
 import { serialize } from "cookie";
 
 export const userRouter = createRouter()
@@ -100,7 +99,7 @@ export const userRouter = createRouter()
 	.query("verify-top", {
 		input: verifyOtpSchema,
 		async resolve({ input, ctx }) {
-			const decoded = decode(input.hash)?.split(":");
+			const decoded = decode(input.hash).split(":");
 			const [id, email] = decoded;
 
 			const token = await ctx.prisma.loginToken.findFirst({
@@ -123,7 +122,7 @@ export const userRouter = createRouter()
 			}
 
 			// Function in util to create jwt
-			const jwt = singJwt({
+			const jwt = signJwt({
 				email: token.user.email,
 				id: token.user.id,
 			});
@@ -136,5 +135,10 @@ export const userRouter = createRouter()
 			return {
 				redirect: token.redirect,
 			};
+		},
+	})
+	.query("me", {
+		resolve({ ctx }) {
+			return ctx.user;
 		},
 	});
