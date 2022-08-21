@@ -2,7 +2,7 @@ import { PrismaClientKnownRequestError } from "@prisma/client/runtime";
 import * as trpc from "@trpc/server";
 import { resolve } from "path";
 import {
-	createUserOutputScheme,
+	createUserOutputSchema,
 	createUserSchema,
 	requestOtpSchema,
 	verifyOtpSchema,
@@ -96,7 +96,7 @@ export const userRouter = createRouter()
 			return true;
 		},
 	})
-	.query("verify-top", {
+	.query("verify-otp", {
 		input: verifyOtpSchema,
 		async resolve({ input, ctx }) {
 			const decoded = decode(input.hash).split(":");
