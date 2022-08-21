@@ -10,6 +10,11 @@ import { trpc } from "../utils/trpc";
 import { UserContextProvider } from "../context/user.context";
 
 function MyApp({ Component, pageProps }: AppProps) {
+	// Example: getting hello query using trpc
+
+	// extracting the data from the query
+	// will return data, error, or isLoading
+	// if either is true return a display
 	const { data, error, isLoading } = trpc.useQuery(["users.me"]);
 
 	if (isLoading) {
