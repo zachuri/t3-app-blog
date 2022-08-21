@@ -7,7 +7,7 @@ export const createUserSchema = z.object({
 	// email: z.string().optional(), // if you want optional
 });
 
-export const createUserOutputScheme = z.object({
+export const createUserOutputSchema = z.object({
 	name: z.string(),
 	email: z.string().email(), //validate its a string and email (simple)
 });
@@ -24,5 +24,5 @@ export const requestOtpSchema = z.object({
 export type requestOtpInput = z.TypeOf<typeof requestOtpSchema>;
 
 export const verifyOtpSchema = z.object({
-  hash: z.string(),
-})
+	hash: z.string(),
+});
