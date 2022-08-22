@@ -39,7 +39,7 @@ export const postRouter = createRouter()
 	})
 	.query("single-post", {
 		input: getSinglePostSchema,
-		resolve({ ctx, input }) {
+		resolve({ input, ctx }) {
 			return ctx.prisma.post.findUnique({
 				where: {
 					id: input.postId,
